@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact</title>
+        <link rel="stylesheet" type="text/css" href="../../static/contact/contact.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="cnt">
+            {% if envoi %} <h3 class="env">Success !</h3>{% endif %}
+            <a href="http://127.0.0.1:8000/"><img class="logo" src="../static/img/logo.png"></a>
+            <h1>Contact Us</h1>
+            <div class="border"></div>
+            <form class="cnt-form" action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
+                <p><label class="cnt-form-lb" for="id_name"></label>
+                    <input class="cnt-form-txt" id="id_name" type="text" name="name" maxlength="100" placeholder="name" required /></p>
+                <p><label class="cnt-form-lb" for="id_subject"></label>
+                    <input class="cnt-form-txt" id="id_subject" type="text" name="subject" maxlength="100" placeholder="Subject" required/></p>
+                <p><label class="cnt-form-lb" for="id_message"></label>
+                    <textarea class="cnt-form-txt" id="id_message" rows="10" cols="40" name="message" placeholder="message" required></textarea></p>
+                <p><label class="cnt-form-lb" for="id_email"></label>
+                    <input class="cnt-form-txt" type="text" name="email" id="id_email" placeholder="mail" required/></p>
+                <input class="cnt-form-btn" type="submit" value="Submit" />
+            </form>
+        </div>
+
+
+    </body>
+</html>

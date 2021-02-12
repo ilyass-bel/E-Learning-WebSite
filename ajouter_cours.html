@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajouter cours</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/froms.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <div class="cnt">
+           <h1>Add cours</h1>
+            <div class="border"></div>
+            <form class="cnt-form" method="post">
+                    {% csrf_token %}
+                    <p><label class="cnt-form-lb" for="id_titre"></label>
+                        <input class="cnt-form-txt" id="id_titre" type="text" name="titre" maxlength="100" placeholder="Title" required /></p>
+                    <p><label class="cnt-form-lb" for="id_filiere"></label>
+                        <input class="cnt-form-txt" id="id_filiere" type="text" name="filiere" maxlength="100" placeholder="section" required/></p>
+                    <p><label class="cnt-form-lb" for="id_date"></label>
+                        <input class="cnt-form-txt" type="date" id="id_date" name="date" placeholder="date" required></input></p>
+                    <p><label class="cnt-form-lb" for="id_semestre"></label>
+                        <input class="cnt-form-txt" type="text" name="semestre" id="id_semestre" placeholder="semestre" required/></p>
+                    <input class="cnt-form-btn" type="submit" value="Submit" />
+            </form>
+       <div class="cnt">
+    </body>
+</html>

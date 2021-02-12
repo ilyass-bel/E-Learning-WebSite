@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Cours</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/enseignant.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="{% url 'Enseignant' %}"><img class="logo" src="../../static/img/logo.png">
+            <ul>
+                <li><a href="{% url 'ajouter_cours' %}">Add cours</a></li>
+                <li><a href="{% url 'ajouter_traveaux' %}">Add home work</a></li>
+                <li><a href="{% url 'rendus_etudiants' %}">Assignments of students</a></li>
+                <li><a href="{% url 'boite_reception' %}">reception</a></li>
+                <li><a href="{% url 'logout' %}">logout</a></li>
+            </ul>
+        </nav>
+        <div>
+            <table>
+                <thead>
+                    <tr><th colspan="6">Questions of students</th></tr>
+                    <tr>
+                        <th>student</th>
+                        <th>Question</th>
+                        <th>Reply</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for q in question %}
+                    <tr>
+                        <td>{{ q.nom_complet }}</td>
+                        <td>{{ q.question }}</td>
+                        <td><a href="{% url 'ajouter_Reponse' %}"><button>Reply</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Cours</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/enseignant.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar">
+            <img class="logo" src="../../static/img/logo.png">
+            <ul>
+                <li><a href="{% url 'ajouter_rendu' %}">Submit an asignment</a></li>
+                <li><a href="{% url 'traveaux_prof' %}">Home work</a></li>
+                <li><a href="{% url 'ajouter_Question' %}">Do you have a question</a></li>
+                <li><a href="{% url 'boite_reponse' %}">reception</a></li>
+                <li><a href="{% url 'rendu_etu' %}">My assignments</a> </li>
+                <li><a href="{% url 'logout' %}">logout</a></li>
+            </ul>
+        </nav>
+        <h1>Hello student {{ request.user.first_name }}</h1>
+
+        <input class="myInput" type="text" id="myInput" onkeyup="filterTable()" placeholder="Entrez votre filiere....">
+
+    <table id ="myTable">
+        <thead>
+            <tr><th colspan="6">COURS</th></tr>
+            <tr>
+                <th>Title</th>
+                <th>Section</th>
+                <th>Semestre</th>
+                <th>Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for con in contenu %}
+            <tr>
+                <td>{{ con.cours.titre }}</td>
+                <td>{{ con.cours.filiere }}</td>
+                <td>{{ con.cours.semestre }}</td>
+                <td><a href="{{ con.content.url }}" target="_blank">Download</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+
+        function filterTable(event) {
+        var filter = event.target.value.toUpperCase();
+        var rows = document.querySelector("#myTable tbody").rows;
+
+        for (var i = 0; i < rows.length; i++) {
+            var firstCol = rows[i].cells[0].textContent.toUpperCase();
+            var secondCol = rows[i].cells[1].textContent.toUpperCase();
+            if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+       }
+    document.querySelector('#myInput').addEventListener('keyup', filterTable, false);
+</script>
+    </body>
+</html>

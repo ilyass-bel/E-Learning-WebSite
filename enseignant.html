@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Cours</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/enseignant.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar">
+            <img class="logo" src="../../static/img/logo.png">
+            <ul>
+                <li><a href="{% url 'ajouter_cours' %}">Add cours</a></li>
+                <li><a href="{% url 'ajouter_traveaux' %}">Add home work</a></li>
+                <li><a href="{% url 'rendus_etudiants' %}">Assignments of students</a></li>
+                <li><a href="{% url 'boite_reception' %}">reception</a></li>
+                <li><a href="{% url 'logout' %}">logout</a></li>
+            </ul>
+        </nav>
+        <h1>Hello teacher {{ request.user.first_name }}</h1>
+        <div class="tab">
+            <table>
+                <thead>
+                    <tr><th colspan="6">COURS</th></tr>
+                    <tr>
+                        <th>Title</th>
+                        <th>Section</th>
+                        <th>Semestre</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                        <th>Add</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for con in contenu %}
+                    <tr>
+                        <td>{{ con.cours.titre }}</td>
+                        <td>{{ con.cours.filiere }}</td>
+                        <td>{{ con.cours.semestre }}</td>
+                        <td><a href="{% url 'update_cours' con.id %}"><button>update</button></a></td>
+                        <td><a href="{% url 'supprimer_cours' con.id %}"><button class="red">delete</button></a></td>
+                        <td><a href="{% url 'ajouter_contenu' %}"><button>add</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tra">
+            <table>
+                <thead>
+                    <tr><th colspan="6">Home work</th></tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Section</th>
+                        <th>Semestre</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tr in traveaux %}
+                    <tr>
+                        <td>{{ tr.nomT }}</td>
+                        <td>{{ tr.filiere }}</td>
+                        <td>{{ tr.semestre }}</td>
+                        <td><a href="{% url 'supprimer_traveaux' tr.id %}"><button class="red">delete</button></a></td>
+                        <td><a href="{% url 'update_traveaux' tr.id %}"><button>Update</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajouter rendu</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/froms.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <div class="cnt">
+           <h1>Submit assignment</h1>
+            <div class="border"></div>
+            <form class="cnt-form" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p><label class="cnt-form-lb" for="id_nomT"></label>
+                        <input class="cnt-form-txt" id="id_nomT" type="text" name="nomT" maxlength="100" placeholder="assignment name" required /></p>
+                    <p><label class="cnt-form-lb" for="id_nom"></label>
+                        <input class="cnt-form-txt" id="id_nom" type="text" name="nom" maxlength="100" placeholder="user name" required/></p>
+                    <p><label class="cnt-form-lb" for="id_semestre"></label>
+                        <input class="cnt-form-txt" type="text" id="id_semestre" name="semestre" placeholder="semestre" required></p>
+                    <p><label class="cnt-form-lb" for="id_filiere"></label>
+                        <input class="cnt-form-txt" type="text" name="filiere" id="id_filiere" placeholder="section" required/></p>
+                    <p><label class="cnt-form-lb" for="id_rendu"></label>
+                        <input class="cnt-form-txt" type="file" name="rendu" id="id_rendu" required/></p>
+                    <input class="cnt-form-btn" type="submit" value="Submit" />
+            </form>
+       <div class="cnt">
+    </body>
+</html>

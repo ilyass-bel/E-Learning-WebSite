@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Questions</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/froms.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <div class="cnt">
+           <h1>Your question</h1>
+            <div class="border"></div>
+            <form class="cnt-form" method="post">
+                    {% csrf_token %}
+                    <p><label class="cnt-form-lb" for="id_nom_complet"></label>
+                        <input class="cnt-form-txt" id="id_nom_complet" type="text" name="nom_complet" maxlength="100" placeholder="First and last name" required /></p>
+                    <p><label class="cnt-form-lb" for="id_question"></label>
+                        <input class="cnt-form-txt" id="id_question" type="text" name="question" maxlength="100" placeholder="question" required/></p>
+                    <input class="cnt-form-btn" type="submit" value="Submit" />
+            </form>
+       <div class="cnt">
+    </body>
+</html>

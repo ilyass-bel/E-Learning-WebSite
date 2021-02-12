@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Cours</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/enseignant.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="{% url 'Etudiant' %}"><img class="logo" src="../../static/img/logo.png">
+            <ul>
+                <li><a href="{% url 'ajouter_rendu' %}">Submit an asignment</a></li>
+                <li><a href="{% url 'traveaux_prof' %}">Home work</a></li>
+                <li><a href="{% url 'ajouter_Question' %}">Do you have a question</a></li>
+                <li><a href="{% url 'boite_reponse' %}">reception</a></li>
+                <li><a href="{% url 'rendu_etu' %}">My assignments</a> </li>
+                <li><a href="{% url 'logout' %}">logout</a></li>
+            </ul>
+        </nav>
+        <div>
+            <form method="get">
+                {{ myFilter.form.as_p }}
+                <button type="submit">Search</button>
+            </form>
+            <table>
+                <thead>
+                    <tr><th colspan="6">Home work</th></tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Section</th>
+                        <th>Semestre</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tr in traveaux %}
+                    <tr>
+                        <td>{{ tr.nomT }}</td>
+                        <td>{{ tr.filiere }}</td>
+                        <td>{{ tr.semestre }}</td>
+                        <td><a href="{{ tr.travail.url }}" target="_blank"><button>Download</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajouter cours</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/froms.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <div class="cnt">
+           <h1>Add cours</h1>
+            <div class="border"></div>
+            <form class="cnt-form" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="cnt-form-btn" type="submit" value="Submit" />
+            </form>
+       <div class="cnt">
+    </body>
+</html>

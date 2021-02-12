@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Cours</title>
+        <link rel="stylesheet" type="text/css" href="../../static/Cours/css/enseignant.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="{% url 'Enseignant' %}"><img class="logo" src="../../static/img/logo.png">
+            <ul>
+                <li><a href="{% url 'ajouter_cours' %}">Add cours</a></li>
+                <li><a href="{% url 'ajouter_traveaux' %}">Add home work</a></li>
+                <li><a href="{% url 'rendus_etudiants' %}">Assignments of students</a></li>
+                <li><a href="{% url 'boite_reception' %}">reception</a></li>
+                <li><a href="{% url 'logout' %}">logout</a></li>
+            </ul>
+        </nav>
+        <div>
+            <form method="get">
+                {{ myFilter.form.as_p }}
+                <button type="submit">Search</button>
+            </form>
+            <table>
+                <thead>
+                    <tr><th colspan="6">Assignments of students</th></tr>
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Student</th>
+                        <th>Semestre</th>
+                        <th>Section</th>
+                        <th>Display</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in rendu %}
+                    <tr>
+                        <td>{{ r.nomT }}</td>
+                        <td>{{ r.nom }}</td>
+                        <td>{{ r.semestre }}</td>
+                        <td>{{ r.filiere }}</td>
+                        <td><a href="{{ r.rendu.url }}" target="_blank"><button>Display</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

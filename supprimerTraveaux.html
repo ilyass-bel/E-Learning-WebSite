@@ -1,0 +1,7 @@
+<h1>Are you sure to delete "{{traveaux}}"?</h1>
+
+<form action="{% url 'supprimer_traveaux' traveaux.id %}" method="post">
+    {% csrf_token %}
+    <a href="{% url 'Enseignant' %}">Cancel</a>
+    <input type="submit" name="Confirmer">
+</form>

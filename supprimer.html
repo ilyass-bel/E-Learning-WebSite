@@ -1,0 +1,8 @@
+
+<h1>Are you sure to delete "{{contenu}}"?</h1>
+
+<form action="{% url 'supprimer_cours' contenu.id %}" method="post">
+    {% csrf_token %}
+    <a href="{% url 'Enseignant' %}">Cancel</a>
+    <input type="submit" name="Confirmer">
+</form>

@@ -1,0 +1,7 @@
+<h1>Are you sure to delete "{{rendu}}"?</h1>
+
+<form action="{% url 'supprimer_rendu' rendu.id %}" method="post">
+    {% csrf_token %}
+    <a href="{% url 'Etudiant' %}">Cancel</a>
+    <input type="submit" name="Confirmer">
+</form>

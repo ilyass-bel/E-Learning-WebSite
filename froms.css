@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat" ,sans-serif;
+}
+.cnt{
+    background: gray;
+    background-size: cover;
+    padding: 40px 0;
+}
+.cnt h1{
+    text-align: center;
+    color: #ddd;
+}
+.border{
+    width: 100px;
+    height: 10px;
+    background: #34495e;
+    margin: 40px auto;
+}
+.cnt-form{
+    max-width: 600px;
+    margin: auto;
+    padding: 0 10px;
+    overflow: hidden;
+}
+.cnt-form-txt{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    marging: 16px 0;
+    border: 0;
+    background: #111;
+    padding: 20px 40px;
+    outline: none;
+    color: #ddd;
+    transition: 0.5s;
+}
+.cnt-form-txt:focus{
+    box-shadow: 0 0 10px 4px #34495e;
+}
+textarea.cnt-form-txt{
+    resize: none;
+    height: 120px;
+}
+.cnt-form-btn{
+    float: right;
+    border: 0;
+    background: #34495e;
+    color: #fff;
+    padding: 12px 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.cnt-form-btn:hover{
+    background: #2980b9;
+}
+.cnt-form-lb{
+    margin-left:270px;
+    margin-bottom: 50px;
+    font-family: "montserrat" ,sans-serif;
+    text-align: center;
+    color: #ddd;
+    font-weight: bold;
+    font-size: large;
+}
+.env{
+    text-align: center;
+    color: #ddd;
+}
+input::placeholder{
+    color: #ddd;
+    font-family: "montserrat" ,sans-serif;
+}
+textarea::placeholder{
+    color: #ddd;
+    font-family: "montserrat" ,sans-serif;
+}
+.logo{
+    width: 140px;
+    height: auto;
+    display: inline-block;
+}
